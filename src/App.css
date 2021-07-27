@@ -1,45 +1,65 @@
 header {
-    height: 60px;
+    height: 320px;
     width: 100vw;
     position: relative;
+    background-color: white;
 }
-header:after {
+header::before {
     content: '';
     position: absolute;
-    top: 100%;
-    left: -114px;
+    top: 60px;
     width: 100vw;
     height: 1px;
     background-color: #e8ebeb;
 }
 
 header svg {
-    height: 100%;
+    height: 60px;
     width: 160px;
     line-height: 100%;
 }
 
-/* Section */
-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 60vw;
-    margin: 30px 0 15px;
-}
-.category {
+.content .under-header {
+    height: calc(320px - 70px);
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+.content .under-header .left-header {
+    width: 70%;
+    height: 100%;
+    padding: 30px 0;
+}
+.content .under-header .left-header p {
+    text-align: justify;
+    margin-top: 20px;
+}
+.content .under-header img {
+    height: 80%;
+    object-fit: contain;
+}
+
+/* Section */
+
+.category {
+    width: 70%;
 }
 .category-card {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    background-color: red;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: auto;
+    grid-gap: 10px;
     width: 100%;
 }
 .card {
     padding: 5px;
     height: 160px;
-    width: calc(50% - 20px);
+    width: 300px;
+    /* min-width: calc(50% - 20px); */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -72,4 +92,44 @@ section {
     width: 100%;
     height: 90%;
     border-radius: 5px;
+}
+
+.card .popular {
+    color: #ff8001;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 1150px) {
+    header {
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+    header .under-header {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    header .under-header img {
+        height: 200px;
+        max-height: 150px;
+    }
+    header .under-header .left-header {
+        width: 100%;
+        height: 100%;
+        padding: 30px 0;
+    }
+    .category-card {
+        display: grid;
+        /* grid-template-columns: repeat(1, 1fr); */
+        grid-template-rows: auto;
+        align-items: center;
+        padding: 10px;
+        width: 100%;
+        background-color: red;
+    }
 }

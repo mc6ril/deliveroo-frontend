@@ -1,12 +1,12 @@
-const Card = ({ key, title, description, price, popular, picture }) => {
+const Card = ({ id, title, description, price, popular, picture }) => {
     return (
-        <div key={key} className="card">
+        <div key={id} className="card">
             <div className="left-card">
-                <h2>{title}</h2>
+                <h4>{title}</h4>
                 <p>{description}</p>
                 <p>
-                    <span>{price}</span>
-                    <span>{popular}</span>
+                    <span>{`${price.replace('.', ',')}€ `}</span>
+                    <span className="popular">{popular && '★ Populaire'}</span>
                 </p>
             </div>
             {picture && (

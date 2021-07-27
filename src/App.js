@@ -41,26 +41,31 @@ function App() {
         </div>
     ) : (
         <div className="App">
-            <Header />
-            <section>
+            <Header
+                restaurant={data.restaurant.name}
+                description={data.restaurant.description}
+                image={data.restaurant.picture}
+            />
+            <section className="content">
                 {data.categories.map((category, index) => {
                     return (
                         <div key={index} className="category">
-                            <h1>{category.name}</h1>
-                            <div key={index} className="category-card">
-                                {category.meals.map((card) => {
-                                    return (
+                            <h3>{category.name}</h3>
+
+                            {category.meals.map((card, i) => {
+                                return (
+                                    <div key={i} className="category-card">
                                         <Card
                                             title={card.title}
                                             description={card.description}
-                                            key={card.id}
+                                            id={card.id}
                                             price={card.price}
                                             popular={card.popular}
                                             picture={card.picture}
                                         />
-                                    );
-                                })}
-                            </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     );
                 })}
