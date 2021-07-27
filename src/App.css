@@ -1,24 +1,58 @@
-header {
-    height: 320px;
+@import './index.css';
+.bg-header {
     width: 100vw;
-    position: relative;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-header::before {
+.bg-header::before {
     content: '';
     position: absolute;
     top: 60px;
-    width: 100vw;
+    left: 0;
+    width: 100%;
     height: 1px;
-    background-color: #e8ebeb;
+    z-index: 9999;
+    background-color: #e9ebeb;
+}
+header {
+    max-width: 1280px;
+    height: 320px;
+    width: 100%;
+    position: relative;
 }
 
-header svg {
+header .high-header {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+header .high-header .logo {
     height: 60px;
     width: 160px;
-    line-height: 100%;
+    display: flex;
 }
 
+/* Buttons header */
+
+header .high-header .menu button {
+    line-height: 12px;
+    padding: 0 12px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #e9ebeb;
+    margin-left: 15px;
+    color: #00ccbc;
+}
+header .high-header .menu button span span:last-child {
+    margin-left: 5px;
+    color: black;
+}
+/* Under header */
 .content .under-header {
     height: calc(320px - 70px);
     width: 100%;
@@ -26,71 +60,139 @@ header svg {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
 }
 .content .under-header .left-header {
-    width: 70%;
     height: 100%;
     padding: 30px 0;
 }
 .content .under-header .left-header p {
     text-align: justify;
     margin-top: 20px;
+    max-width: 680px;
+}
+.content .under-header .image {
+    height: 100%;
 }
 .content .under-header img {
-    height: 80%;
+    height: 100%;
     object-fit: contain;
 }
 
 /* Section */
-
-.category {
-    width: 70%;
+section {
+    max-width: 1280px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
+.all-categories {
+    width: 65%;
+}
+
+/* Panier */
+.market {
+    background-color: white;
+    box-shadow: 0px 0px 6px 2px rgba(206, 197, 197, 0.6);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.empty {
+    height: 420px;
+}
+.not-empty {
+    height: 580px;
+}
+.market button {
+    height: 55px;
+    width: 90%;
+    background-color: #00ccbc;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.not-empty > div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.market .panier {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+}
+.market .panier button {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+/* Cards */
+.category {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.category h3 {
+    margin-bottom: 20px;
+}
+
 .category-card {
-    background-color: red;
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
-    grid-gap: 10px;
+    grid-gap: 20px;
     width: 100%;
 }
+
 .card {
     padding: 5px;
     height: 160px;
-    width: 300px;
-    /* min-width: calc(50% - 20px); */
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background-color: white;
     border-radius: 5px;
-    margin: 20px 20px 20px 0;
+}
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 6px 2px rgba(206, 197, 197, 0.6);
+    transform: scale(1.01);
 }
 .card .left-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    width: calc(100% - 130px);
+    width: 65%;
     padding: 0.3vw;
 }
 .card .left-card p {
     height: 38px;
     line-height: calc(38px / 2);
     overflow: hidden;
+    max-width: 620px;
 }
 .card .right-card {
-    width: 130px;
-    height: 130px;
+    width: calc(100% - 65%);
+    height: 80%;
     display: flex;
     align-items: center;
 }
 .card .right-card img {
     object-fit: cover;
     width: 100%;
-    height: 90%;
+    height: 100%;
     border-radius: 5px;
 }
 
@@ -100,36 +202,72 @@ header svg {
     font-weight: bolder;
 }
 
-@media screen and (max-width: 1150px) {
+/* @media screen and (max-width: 1750px) {
+    .content {
+        width: calc(100vw - (250px * 2));
+    }
+} */
+@media screen and (max-width: 1450px) {
     header {
-        height: 100%;
-        width: 100%;
+        width: 96%;
+        height: 460px;
         position: relative;
     }
-    header .under-header {
-        height: 100%;
-        width: 100%;
+
+    section {
+        width: 96%;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .content {
+        width: 100vw;
+    }
+
+    .content .under-header {
+        height: 400px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
+        justify-content: space-between;
+        align-items: center;
     }
-    header .under-header img {
-        height: 200px;
-        max-height: 150px;
-    }
-    header .under-header .left-header {
+    .content .under-header .left-header {
         width: 100%;
-        height: 100%;
-        padding: 30px 0;
+        height: 40%;
+    }
+    .content .under-header .image {
+        height: 60%;
+        width: 100%;
+    }
+    .content .under-header img {
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
     }
     .category-card {
         display: grid;
-        /* grid-template-columns: repeat(1, 1fr); */
+        grid-template-columns: repeat(1, 1fr);
         grid-template-rows: auto;
         align-items: center;
         padding: 10px;
         width: 100%;
-        background-color: red;
+    }
+    .card {
+        min-width: 90vw;
+    }
+}
+@media screen and (max-width: 450px) {
+    .content .under-header .left-header {
+        width: 100%;
+        height: 50%;
+    }
+    .content .under-header .image {
+        width: 100%;
+        height: 50%;
+    }
+    .content .under-header img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
